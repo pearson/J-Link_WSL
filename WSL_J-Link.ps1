@@ -40,7 +40,7 @@ try{
     $output = $output.ToString()
 
     # Use some RegEx to extract the BusID and the connection status
-    $result = $output -match '^([0-9]+-[0-9]+)\s+J-Link driver\s+([a-z,A-Z,\s]+)'
+    $result = $output -match '^([0-9]+-[0-9]+)\s+[0-9a-fA-F]{4}:[0-9a-fA-F]{4}\s+J-Link driver\s+([a-z,A-Z,\s]+)'
 
     # As the BusID is a long UUID if the device is not connected but is persisted, it will not match the regex  
     if ($result -eq $false)
